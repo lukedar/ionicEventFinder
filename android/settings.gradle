@@ -1,0 +1,3 @@
+rootProject.name = 'eventFinderApp'
+
+include ':app'
