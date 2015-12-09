@@ -10,15 +10,11 @@ var {
 } = React;
 
 var EventDetials = React.createClass({
-  componentWillMount: function() {
-    console.log(this.props);
-  },
-
-  goToMap: function() {
+  goToMap: function(eventData) {
     this.props.navigator.push({
         component: Map,
         title: 'Map View',
-        passProps: { eventData: eventData},
+        passProps: { locationId: eventData.location},
       });
   },
 

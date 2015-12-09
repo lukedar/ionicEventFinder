@@ -17,13 +17,17 @@ var regionText = {
 
 var MapViewExample = React.createClass({
 
-  getInitialState(): MapViewExampleState {
+  getInitialState: function() {
     return {
       isFirstLoad: true
     };
   },
 
-  render() {
+  componentWillMount: function() {
+    console.log(this.props);
+  },
+
+  render: function() {
     return (
       <View>
         <MapView
