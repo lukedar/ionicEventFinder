@@ -1,15 +1,25 @@
 var React = require('react-native');
+var Map = require('./Map');
 
 var {
   Text,
   StyleSheet,
-  View
+  View,
+  Image,
+  TouchableHighlight
 } = React;
-
 
 var EventDetials = React.createClass({
   componentWillMount: function() {
     console.log(this.props);
+  },
+
+  goToMap: function() {
+    this.props.navigator.push({
+        component: Map,
+        title: 'Map View',
+        passProps: { eventData: eventData},
+      });
   },
 
   render: function() {
@@ -18,9 +28,17 @@ var EventDetials = React.createClass({
     return (
        <View style={styles.container}>
           <View style={styles.rightContainer}>
-              <Text style={styles.title}>{eventData.node_title}</Text>
-              <Text style={styles.eventType}>{eventData.event_description.value}</Text>
-          </View>
+            <Image
+              source={{uri: eventData.event_type.image_url}}
+              style={styles.thumbnail}/>
+            <Text style={styles.title}>{eventData.node_title}</Text>
+            <Text style={styles.eventType}>{eventData.event_date.value}</Text>
+            <Text style={styles.eventType}>{eventData.event_type.name}</Text>
+            <Text style={styles.eventType}>{eventData.event_description.value}</Text>
+            <TouchableHighlight onPress={() => this.goToMap(eventData)}>
+              <Text style={styles.mapLink}>View Map</Text>
+            </TouchableHighlight>
+            </View>
         </View>
     );
   },
@@ -45,6 +63,12 @@ var styles = StyleSheet.create({
   },
   eventType: {
     textAlign: 'left',
+  },
+  mapLink: {
+    fontWeight: 'bold',
+    marginTop: 20,
+    textAlign: 'center',
+    backgroundColor: 'transparent',
   },
   thumbnail: {
     width: 80,
