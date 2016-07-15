@@ -9,7 +9,7 @@ var {
   StyleSheet,
   Text,
   View,
-    TouchableHighlight
+  TouchableHighlight
 } = React;
 
 var Main = React.createClass({

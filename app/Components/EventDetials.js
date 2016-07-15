@@ -64,7 +64,6 @@ var styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 20,
     textAlign: 'center',
-    backgroundColor: 'transparent',
   },
   thumbnail: {
     width: 80,

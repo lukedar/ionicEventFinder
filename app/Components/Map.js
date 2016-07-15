@@ -66,23 +66,12 @@ var MapViewExample = React.createClass({
     }
   },
 
-  _onRegionInputChanged(region) {
-    console.log(region);
-
-    this.setState({
-      mapRegion: region,
-      mapRegionInput: region,
-      annotations: this._getAnnotations(region),
-    });
-  },
-
 });
 
 
 var styles = StyleSheet.create({
   map: {
-    height: 700,
-    borderColor: '#000000',
+    height: 700,  
   },
   row: {
     flexDirection: 'row',
@@ -104,7 +93,6 @@ var styles = StyleSheet.create({
     borderColor: '#777777',
   },
 });
-
 
 
 module.exports = MapViewExample;
